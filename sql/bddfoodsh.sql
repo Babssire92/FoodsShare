@@ -1,161 +1,59 @@
-DROP DATABASE IF EXISTS bddfoodsh;
+DROP DATABASE IF EXISTS bddfoodshare;
+CREATE DATABASE bddfoodshare;
+USE bddfoodshare;
 
-CREATE DATABASE IF NOT EXISTS bddfoodsh;
-USE bddfoodsh;
-# -----------------------------------------------------------------------------
-#       TABLE : USER
-# -----------------------------------------------------------------------------
+-- Table : ASSOCIATION
+CREATE TABLE association (
+    id_association INT(5) NOT NULL AUTO_INCREMENT,
+    nom VARCHAR(50),
+    contact VARCHAR(50),
+    PRIMARY KEY (id_association)
+);
 
-CREATE TABLE IF NOT EXISTS USER
- (
-   ID_USER INTEGER(2) NOT NULL  ,
-   NOM VARCHAR(255) NULL  ,
-   PRENOM VARCHAR(255) NULL  ,
-   EMAIL VARCHAR(255) NOT NULL  ,
-   MDP VARCHAR(255) NOT NULL  ,
-   ROLE VARCHAR(255) NULL  
-   , PRIMARY KEY (ID_USER) 
- ) 
- comment = "";
+-- Table : RESTAURANT
+CREATE TABLE restaurant (
+    id_restaurant INT(5) NOT NULL AUTO_INCREMENT,
+    nom VARCHAR(50),
+    adresse VARCHAR(100),
+    telephone BIGINT(10),
+    PRIMARY KEY (id_restaurant)
+);
 
-# -----------------------------------------------------------------------------
-#       TABLE : ASSOCIATION
-# -----------------------------------------------------------------------------
+-- Table : USER
+CREATE TABLE user (
+    id_user INT(5) NOT NULL AUTO_INCREMENT,
+    id_restaurant INT(5),
+    id_association INT(5),
+    nom VARCHAR(50),
+    prenom VARCHAR(50),
+    email VARCHAR(50) NOT NULL,
+    mdp VARCHAR(50) NOT NULL,
+    role VARCHAR(50),
+    PRIMARY KEY (id_user),
+    FOREIGN KEY (id_restaurant) REFERENCES restaurant (id_restaurant),
+    FOREIGN KEY (id_association) REFERENCES association (id_association)
+);
 
-CREATE TABLE IF NOT EXISTS ASSOCIATION
- (
-   ID_ASSOCIATION INTEGER(2) NOT NULL  ,
-   ID_DON INTEGER(2) NOT NULL  ,
-   ID_USER INTEGER(2) NOT NULL  ,
-   NOM VARCHAR(255) NULL  ,
-   CONTACT VARCHAR(255) NULL  
-   , PRIMARY KEY (ID_ASSOCIATION) 
- ) 
- comment = "";
+-- Table : DON
+CREATE TABLE don (
+    id_don INT(5) NOT NULL AUTO_INCREMENT,
+    id_association INT(5),
+    montant FLOAT,
+    date DATE,
+    PRIMARY KEY (id_don),
+    FOREIGN KEY (id_association) REFERENCES association (id_association)
+);
 
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE ASSOCIATION
-# -----------------------------------------------------------------------------
+-- Table : PLATS
+CREATE TABLE plats (
+    id_plat INT(5) NOT NULL AUTO_INCREMENT,
+    id_restaurant INT(5),
+    id_don INT(5),
+    nom VARCHAR(50),
+    description VARCHAR(100),
+    prix FLOAT,
+    PRIMARY KEY (id_plat),
+    FOREIGN KEY (id_restaurant) REFERENCES restaurant (id_restaurant),
+    FOREIGN KEY (id_don) REFERENCES don (id_don)
+);
 
-
-CREATE  INDEX I_FK_ASSOCIATION_DON
-     ON ASSOCIATION (ID_DON ASC);
-
-CREATE  INDEX I_FK_ASSOCIATION_USER
-     ON ASSOCIATION (ID_USER ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : RESTAURANT
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS RESTAURANT
- (
-   ID_RESTAURANT INTEGER(2) NOT NULL  ,
-   ID_PLAT INTEGER(2) NOT NULL  ,
-   ID_USER INTEGER(2) NOT NULL  ,
-   NOM VARCHAR(255) NULL  ,
-   ADRESSE VARCHAR(255) NULL  ,
-   TELEPHONE BIGINT(4) NULL  
-   , PRIMARY KEY (ID_RESTAURANT) 
- ) 
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE RESTAURANT
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_RESTAURANT_PLATS
-     ON RESTAURANT (ID_PLAT ASC);
-
-CREATE  INDEX I_FK_RESTAURANT_USER
-     ON RESTAURANT (ID_USER ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : DON
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS DON
- (
-   ID_DON INTEGER(2) NOT NULL  ,
-   MONTANT VARCHAR(255) NULL  ,
-   DATE DATE NULL  
-   , PRIMARY KEY (ID_DON) 
- ) 
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       TABLE : PLATS
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS PLATS
- (
-   ID_PLAT INTEGER(2) NOT NULL  ,
-   NOM VARCHAR(255) NULL  ,
-   DESCRIPTION VARCHAR(255) NULL  ,
-   PRIX VARCHAR(255) NULL  
-   , PRIMARY KEY (ID_PLAT) 
- ) 
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       TABLE : COMPOSER
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS COMPOSER
- (
-   ID_DON INTEGER(2) NOT NULL  ,
-   ID_PLAT INTEGER(2) NOT NULL  
-   , PRIMARY KEY (ID_DON,ID_PLAT) 
- ) 
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE COMPOSER
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_COMPOSER_DON
-     ON COMPOSER (ID_DON ASC);
-
-CREATE  INDEX I_FK_COMPOSER_PLATS
-     ON COMPOSER (ID_PLAT ASC);
-
-
-# -----------------------------------------------------------------------------
-#       CREATION DES REFERENCES DE TABLE
-# -----------------------------------------------------------------------------
-
-
-ALTER TABLE ASSOCIATION 
-  ADD FOREIGN KEY FK_ASSOCIATION_DON (ID_DON)
-      REFERENCES DON (ID_DON) ;
-
-
-ALTER TABLE ASSOCIATION 
-  ADD FOREIGN KEY FK_ASSOCIATION_USER (ID_USER)
-      REFERENCES USER (ID_USER) ;
-
-
-ALTER TABLE RESTAURANT 
-  ADD FOREIGN KEY FK_RESTAURANT_PLATS (ID_PLAT)
-      REFERENCES PLATS (ID_PLAT) ;
-
-
-ALTER TABLE RESTAURANT 
-  ADD FOREIGN KEY FK_RESTAURANT_USER (ID_USER)
-      REFERENCES USER (ID_USER) ;
-
-
-ALTER TABLE COMPOSER 
-  ADD FOREIGN KEY FK_COMPOSER_DON (ID_DON)
-      REFERENCES DON (ID_DON) ;
-
-
-ALTER TABLE COMPOSER 
-  ADD FOREIGN KEY FK_COMPOSER_PLATS (ID_PLAT)
-      REFERENCES PLATS (ID_PLAT) ;
-
-
-
-#les procedures seront creer a partir de cette ligne
