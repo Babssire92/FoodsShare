@@ -49,11 +49,10 @@ CREATE TABLE plats (
     id_plat INT(5) NOT NULL AUTO_INCREMENT,
     id_restaurant INT(5),
     id_don INT(5),
-    nom VARCHAR(50),
+    nom VARCHAR(60),
     description VARCHAR(100),
     prix FLOAT,
     PRIMARY KEY (id_plat),
     FOREIGN KEY (id_restaurant) REFERENCES restaurant (id_restaurant),
     FOREIGN KEY (id_don) REFERENCES don (id_don)
 );
-
