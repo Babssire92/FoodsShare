@@ -33,19 +33,38 @@
             padding: 40px;
             text-align: center;
         }
-        .restaurant-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            justify-content: center;
+        .don-management {
+            background-color: #a0a09f;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+        }
+        .input-group {
+            margin: 10px 0;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
             margin-top: 20px;
         }
-        .restaurant img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .restaurant p {
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #888;
+            cursor: pointer;
             font-weight: bold;
         }
         .footer {
@@ -59,41 +78,29 @@
 <body>
 <div class="header">
 <div class="logo">
-<img src="Design sans titre (5) 1.png" alt="FoodShare Logo">
+<img src="Design sans titre (6) 1.png" alt="FoodShare Logo">
 </div>
 <div class="nav">
 <a href="#">Accueil</a>
 <a href="#">Dons</a>
 <a href="#">Associations</a>
-<a href="#">A Propos</a>
+<a href="#">Déconnexion</a>
 </div>
 </div>
 <div class="container">
-<h1>Nos restaurants partenaires</h1>
-<div class="restaurant-grid">
-<div class="restaurant">
-<img src="Design sans titre (5) 1.png" alt="Le RECHO">
-<p>Le RECHO</p>
+<h1>Gestion des dons</h1>
+<div class="don-management">
+<div class="input-group">
+<label for="nom">Nom</label>
+<input type="text" id="nom" name="nom">
 </div>
-<div class="restaurant">
-<img src="Design sans titre (5) 1.png" alt="La Résidence">
-<p>La Résidence</p>
+<div class="input-group">
+<label for="contact">Contact</label>
+<input type="text" id="contact" name="contact">
 </div>
-<div class="restaurant">
-<img src="Design sans titre (5) 1.png" alt="Freegan Pony">
-<p>Freegan Pony</p>
-</div>
-<div class="restaurant">
-<img src="Design sans titre (5) 1.png" alt="Les Marmites Volantes">
-<p>Les Marmites Volantes</p>
-</div>
-<div class="restaurant">
-<img src="Design sans titre (5) 1.png" alt="Refettorio Paris">
-<p>Refettorio Paris</p>
-</div>
-<div class="restaurant">
-<img src="Design sans titre (5) 1.png" alt="Les Restos du Cœur">
-<p>Les Restos du Cœur</p>
+<div class="button-group">
+<button class="button">Ajouter</button>
+<button class="button">Modifier</button>
 </div>
 </div>
 </div>
@@ -102,3 +109,4 @@
 </div>
 </body>
 </html>
+
