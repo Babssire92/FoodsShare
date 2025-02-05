@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - FoodShare</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #7B8E7B;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #B0B2B0;
+            padding: 10px 20px;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: black;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px);
+        }
+
+        .login-box {
+            background-color: #A6B2A6;
+            border-radius: 10px;
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-box img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .login-box h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .login-box input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-box button {
+            width: 120px;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #888;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-box button:hover {
+            background-color: #666;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #B0B2B0;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: black;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="foodshare_logo.png" alt="FoodShare Logo">
+        <nav>
+            <a href="#">Connexion</a>
+            <a href="#">Inscription</a>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <div class="login-box">
+            <img src="foodshare_logo.png" alt="FoodShare Logo">
+            <h1>Connectez-vous</h1>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Mot de passe">
+            <div>
+                <button>Connexion</button>
+                <button>Inscription</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="#">A Propos</a>
+        <span>|</span>
+        <a href="#">Contact</a>
+    </footer>
+</body>
+</html>

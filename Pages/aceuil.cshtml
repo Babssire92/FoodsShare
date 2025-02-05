@@ -40,11 +40,11 @@
             margin-bottom: 30px;
         }
 
-        .main-content .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .main-content .content-row {
+            display: flex;
+            justify-content: center;
             gap: 20px;
-            justify-items: center;
+            margin-bottom: 20px;
         }
 
         .content-item {
@@ -62,18 +62,22 @@
             object-fit: cover;
         }
 
-        .content-item .description {
+        .content-item button {
             position: absolute;
-            top: 50%;
+            bottom: 10px;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            background-color: rgba(0, 0, 0, 0.6);
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #888;
             color: white;
-            font-size: 14px;
-            text-align: center;
-            padding: 10px;
-            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .content-item button:hover {
+            background-color: #666;
         }
 
         footer {
@@ -105,31 +109,21 @@
     </header>
 
     <div class="main-content">
-        <h1>Nos offres de dons</h1>
-        <div class="content-grid">
+        <h1>FoodShare</h1>
+        <div class="content-row">
             <div class="content-item">
-                <img src="don1.jpg" alt="Offre 1">
-                <div class="description">Description de l'offre 1.</div>
+                <img src="restaurant.jpg" alt="Restaurants partenaires">
+                <button>Nos restaurants partenaires</button>
+            </div>
+        </div>
+        <div class="content-row">
+            <div class="content-item">
+                <img src="dons.jpg" alt="Dons">
+                <button>Dons</button>
             </div>
             <div class="content-item">
-                <img src="don2.jpg" alt="Offre 2">
-                <div class="description">Description de l'offre 2.</div>
-            </div>
-            <div class="content-item">
-                <img src="don3.jpg" alt="Offre 3">
-                <div class="description">Description de l'offre 3.</div>
-            </div>
-            <div class="content-item">
-                <img src="don4.jpg" alt="Offre 4">
-                <div class="description">Description de l'offre 4.</div>
-            </div>
-            <div class="content-item">
-                <img src="don5.jpg" alt="Offre 5">
-                <div class="description">Description de l'offre 5.</div>
-            </div>
-            <div class="content-item">
-                <img src="don6.jpg" alt="Offre 6">
-                <div class="description">Description de l'offre 6.</div>
+                <img src="associations.jpg" alt="Associations">
+                <button>Associations</button>
             </div>
         </div>
     </div>

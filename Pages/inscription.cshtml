@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscription</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+ 
+        body {
+            background-color: #8a998f;
+            color: black;
+            text-align: center;
+        }
+ 
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #a0a19f;
+            padding: 10px 20px;
+        }
+ 
+        .logo {
+            width: 60px;
+        }
+ 
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+ 
+        nav ul li {
+            display: inline;
+        }
+ 
+        nav ul li a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+        }
+ 
+        h1 {
+            margin-top: 20px;
+            font-size: 28px;
+        }
+ 
+        .registration-box {
+            background-color: #b0b0b0;
+            padding: 30px;
+            width: 40%;
+            margin: 20px auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+ 
+        .registration-box img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+ 
+        .registration-box label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+ 
+        .registration-box input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+ 
+        .register-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #808080;
+            color: white;
+            width: 100%;
+        }
+ 
+        footer {
+            background-color: #a0a19f;
+            padding: 10px;
+            margin-top: 20px;
+        }
+ 
+        footer a {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+        }
+</style>
+</head>
+<body>
+<header>
+<img src="logo.png" alt="FoodShare Logo" class="logo">
+<nav>
+<ul>
+<li><a href="#">Connexion</a></li>
+<li><a href="#">Inscription</a></li>
+</ul>
+</nav>
+</header>
+ 
+    <main>
+<h1>Inscrivez vous</h1>
+<section class="registration-box">
+<img src="logo.png" alt="FoodShare Logo">
+<label for="name">Nom</label>
+<input type="text" id="name">
+ 
+            <label for="surname">Prénom</label>
+<input type="text" id="surname">
+ 
+            <label for="password">Mot de passe</label>
+<input type="password" id="password">
+ 
+            <label for="confirm-password">Confirmez le mot de passe</label>
+<input type="password" id="confirm-password">
+ 
+            <button class="register-btn">Inscription</button>
+</section>
+</main>
+ 
+    <footer>
+<p><a href="#">A Propos</a> | <a href="#">Contact</a></p>
+</footer>
+</body>
+</html>
