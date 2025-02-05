@@ -4,12 +4,14 @@ namespace  FoodShare
    public class Association : User
     {
         public int IdAssociation { get; set; }
+        public string Nom { get; set; }
         public string Contact { get; set; }
 
-        public Association(int idAssociation, int idUser, string nom, string prenom, string email, string mdp, string role, string contact)
-            : base(idUser, nom, prenom, email, mdp, role)
+        public Association(int idAssociation, int idUser, string nom, string contact)
+           
         {
             IdAssociation = idAssociation;
+            Nom = nom;
             Contact = contact;
         }
     }
